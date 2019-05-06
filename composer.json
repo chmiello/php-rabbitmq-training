@@ -1,0 +1,15 @@
+{
+    "name": "chmiello/php-rabbitmq-training",
+    "description": "A simple RabbitMQ learning app.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chmiello",
+            "email": "bartek@chmiello.pl"
+        }
+    ],
+    "require": {
+        "php-amqplib/php-amqplib": "^2.9"
+    }
+}
