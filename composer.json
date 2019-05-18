@@ -10,6 +10,7 @@
         }
     ],
     "require": {
-        "php-amqplib/php-amqplib": "^2.9"
+        "php-amqplib/php-amqplib": "^2.9",
+        "vlucas/phpdotenv": "^3.3"
     }
 }
