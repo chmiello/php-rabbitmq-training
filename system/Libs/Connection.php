@@ -10,21 +10,17 @@ namespace Rabbitmq\Libs;
 
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
+use Rabbitmq\Contracts\Rabbitmq\Connection as AbstractConection;
 
 /**
  * Class Connection
  * @package Rabbitmq\Libs
  *
  */
-class Connection
+class Connection extends AbstractConection
 {
-    private $_connection = null;
 
-    /**
-     * Connection constructor.
-     */
-
-    public function __construct()
+    protected function initConnection()
     {
         if (is_null($this->_connection)) {
             $this->_connection = new AMQPStreamConnection(
@@ -34,14 +30,5 @@ class Connection
                 getenv('RABBITMQ_PASSWORD')
             );
         }
-    }
-
-    /**
-     * @return AMQPStreamConnection
-     */
-
-    public function getConnection(): AMQPStreamConnection
-    {
-        return $this->_connection;
     }
 }
