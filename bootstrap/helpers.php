@@ -9,6 +9,8 @@
 if (!function_exists('config')) {
     /**
      * @param $name
+     *
+     * @return bool|mixed
      */
     function config($name)
     {
