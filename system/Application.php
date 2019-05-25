@@ -6,24 +6,31 @@ use Rabbitmq\Contracts\Commands\Executor;
 use Rabbitmq\Contracts\Rabbitmq\Connection;
 
 /**
- * Class Application
+ * Main class
+ *
  * @package Rabbitmq
  *
  */
 class Application
 {
     /**
+     * Rabbitmq driver
+     *
      * @var Connection|null
      */
     private $_rabbitmqConnection = null;
 
     /**
+     * Command executor
+     *
      * @var Executor|null
      */
     private $_commandExecutor = null;
 
     /**
-     * @param Connection $connection
+     * Setter _rabbitmqConnection
+     *
+     * @param Connection $connection Connection class
      *
      * @return Application
      */
@@ -35,6 +42,8 @@ class Application
     }
 
     /**
+     * Getter _rabbitmqConnection
+     *
      * @return Connection|null
      */
     public function getRabbitmqConnection(): Connection
@@ -43,7 +52,9 @@ class Application
     }
 
     /**
-     * @param Executor $executor
+     * Setter _commandExeutor
+     *
+     * @param Executor $executor Executor class
      *
      * @return $this
      */
@@ -54,6 +65,8 @@ class Application
     }
 
     /**
+     * Getter _commandExecutor
+     *
      * @return Executor|null
      */
     public function getCommandExecutor()
