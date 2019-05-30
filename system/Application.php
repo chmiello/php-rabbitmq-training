@@ -74,4 +74,14 @@ class Application
         return $this->_commandExecutor;
     }
 
+    /**
+     * Execute command
+     *
+     * @return void
+     */
+    public function executeCommand()
+    {
+        $this->_commandExecutor->executeCommand();
+    }
+
 }

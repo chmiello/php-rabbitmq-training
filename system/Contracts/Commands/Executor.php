@@ -9,27 +9,87 @@
 namespace Rabbitmq\Contracts\Commands;
 
 /**
- * Class Executor
+ * Contract to command executor class
+ *
  * @package Rabbitmq\Contracts\Commands
  */
 abstract class Executor
 {
     /**
+     * Commands array
+     *
      * @var array
      */
-    protected $_commands = [];
+    protected $commands = [];
 
     /**
+     * Command execute class
+     *
      * @var null
      */
     protected $commandDriver = null;
 
     /**
-     * @return mixed
+     * Command driver class
+     *
+     * @var null
      */
-    public function loadCommandsFromConfig()
+    protected $commandDriverClass = null;
+
+
+    /**
+     * Executor constructor.
+     *
+     * @throws \Exception
+     */
+    public function __construct()
     {
-        
+        if (is_null($this->commandDriverClass)) {
+            throw new \Exception('Command driver is not define');
+        }
+
+        $this->commandDriver = new $this->commandDriverClass;
+
+        foreach ($this->commands as $command) {
+            $this->registerCommand($command);
+        }
+
+        $this->afterConstruct();
+    }
+
+    /**
+     * Load commands from
+     *
+     * @return void
+     */
+    abstract public function loadCommands();
+
+    /**
+     * Register command in application
+     *
+     * @param mixed $command Command class
+     *
+     * @return void
+     */
+    abstract public function registerCommand($command);
+
+
+    /**
+     * Execute command
+     *
+     * @return void
+     */
+    abstract public function executeCommand();
+
+
+    /**
+     * Execute extra commands
+     *
+     * @return void
+     */
+    public function afterConstruct()
+    {
+
     }
 
 }

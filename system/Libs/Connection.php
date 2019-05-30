@@ -14,12 +14,18 @@ use Rabbitmq\Contracts\Rabbitmq\Connection as AbstractConection;
 
 /**
  * Class Connection
+ *
  * @package Rabbitmq\Libs
  *
  */
 class Connection extends AbstractConection
 {
 
+    /**
+     * Init connection
+     *
+     * @return mixed|void
+     */
     protected function initConnection()
     {
         if (is_null($this->_connection)) {
